@@ -11,6 +11,7 @@ export function useRecorder() {
     const startTimeRef = useRef(null);
     const streamRef = useRef(null);
     const timerIntervalRef = useRef(null);
+    const mimeTypeRef = useRef("video/webm");
 
     const startRecording = useCallback(async () => {
         try {
@@ -45,6 +46,8 @@ export function useRecorder() {
             const mimeType = MediaRecorder.isTypeSupported("video/webm; codecs=vp9") 
                 ? "video/webm; codecs=vp9" 
                 : "video/webm";
+            
+            mimeTypeRef.current = mimeType;
 
             const mediaRecorder = new MediaRecorder(stream, { mimeType });
             mediaRecorderRef.current = mediaRecorder;
@@ -57,7 +60,7 @@ export function useRecorder() {
             };
 
             mediaRecorder.onstop = () => {
-                const blob = new Blob(chunksRef.current, { type: 'video/webm' });
+                const blob = new Blob(chunksRef.current, { type: mimeTypeRef.current });
                 const url = URL.createObjectURL(blob);
                 setMediaBlobUrl(url);
 

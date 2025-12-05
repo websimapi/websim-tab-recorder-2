@@ -20,7 +20,8 @@ const RecordedClip = ({ videoUrl, crop, audioTracks = [], originalDimensions }) 
         style: {
           width: "100%",
           height: "100%",
-          objectFit: "fill"
+          objectFit: "fill",
+          backgroundColor: "#000"
         }
       },
       void 0,
@@ -36,11 +37,11 @@ const RecordedClip = ({ videoUrl, crop, audioTracks = [], originalDimensions }) 
       columnNumber: 17
     }) : /* @__PURE__ */ jsxDEV(AbsoluteFill, { className: "bg-slate-900 flex items-center justify-center text-white", children: /* @__PURE__ */ jsxDEV("h2", { className: "text-2xl font-bold", children: "No Recording Available" }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 34,
+      lineNumber: 35,
       columnNumber: 21
     }) }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 33,
+      lineNumber: 34,
       columnNumber: 17
     }),
     audioTracks.map((track) => /* @__PURE__ */ jsxDEV(Sequence, { from: track.startFrame || 0, children: /* @__PURE__ */ jsxDEV(
@@ -53,12 +54,12 @@ const RecordedClip = ({ videoUrl, crop, audioTracks = [], originalDimensions }) 
       false,
       {
         fileName: "<stdin>",
-        lineNumber: 40,
+        lineNumber: 41,
         columnNumber: 21
       }
     ) }, track.id, false, {
       fileName: "<stdin>",
-      lineNumber: 39,
+      lineNumber: 40,
       columnNumber: 17
     }))
   ] }, void 0, true, {
