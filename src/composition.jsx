@@ -1,48 +1,56 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React from "react";
-import { AbsoluteFill, Sequence, Audio, Video } from "remotion";
+import { AbsoluteFill, Sequence, Audio, OffthreadVideo } from "remotion";
 const RecordedClip = ({ videoUrl, crop, audioTracks = [], originalDimensions }) => {
   const sourceWidth = originalDimensions?.width || 1920;
   const sourceHeight = originalDimensions?.height || 1080;
   const cropX = Number(crop?.x) || 0;
   const cropY = Number(crop?.y) || 0;
   return /* @__PURE__ */ jsxDEV(AbsoluteFill, { style: { backgroundColor: "#0f172a" }, children: [
-    videoUrl ? /* @__PURE__ */ jsxDEV("div", { style: {
-      position: "absolute",
-      left: -cropX,
-      top: -cropY,
-      width: sourceWidth,
-      height: sourceHeight
-    }, children: /* @__PURE__ */ jsxDEV(
-      Video,
+    videoUrl ? /* @__PURE__ */ jsxDEV(
+      "div",
       {
-        src: videoUrl,
         style: {
-          width: "100%",
-          height: "100%",
-          objectFit: "fill",
-          backgroundColor: "#000"
+          position: "absolute",
+          left: -cropX,
+          top: -cropY,
+          width: sourceWidth,
+          height: sourceHeight
         },
-        playsInline: true
+        children: /* @__PURE__ */ jsxDEV(
+          OffthreadVideo,
+          {
+            src: videoUrl,
+            style: {
+              width: "100%",
+              height: "100%",
+              objectFit: "fill",
+              backgroundColor: "#000"
+            }
+          },
+          void 0,
+          false,
+          {
+            fileName: "<stdin>",
+            lineNumber: 25,
+            columnNumber: 21
+          }
+        )
       },
       void 0,
       false,
       {
         fileName: "<stdin>",
-        lineNumber: 23,
-        columnNumber: 21
+        lineNumber: 16,
+        columnNumber: 17
       }
-    ) }, void 0, false, {
+    ) : /* @__PURE__ */ jsxDEV(AbsoluteFill, { className: "bg-slate-900 flex items-center justify-center text-white", children: /* @__PURE__ */ jsxDEV("h2", { className: "text-2xl font-bold", children: "No Recording Available" }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 16,
-      columnNumber: 17
-    }) : /* @__PURE__ */ jsxDEV(AbsoluteFill, { className: "bg-slate-900 flex items-center justify-center text-white", children: /* @__PURE__ */ jsxDEV("h2", { className: "text-2xl font-bold", children: "No Recording Available" }, void 0, false, {
-      fileName: "<stdin>",
-      lineNumber: 36,
+      lineNumber: 37,
       columnNumber: 21
     }) }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 35,
+      lineNumber: 36,
       columnNumber: 17
     }),
     audioTracks.map((track) => /* @__PURE__ */ jsxDEV(Sequence, { from: track.startFrame || 0, children: /* @__PURE__ */ jsxDEV(
@@ -55,12 +63,12 @@ const RecordedClip = ({ videoUrl, crop, audioTracks = [], originalDimensions }) 
       false,
       {
         fileName: "<stdin>",
-        lineNumber: 42,
+        lineNumber: 43,
         columnNumber: 21
       }
     ) }, track.id, false, {
       fileName: "<stdin>",
-      lineNumber: 41,
+      lineNumber: 42,
       columnNumber: 17
     }))
   ] }, void 0, true, {
