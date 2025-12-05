@@ -1,6 +1,6 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React, { useState, useEffect, useRef } from "react";
-import { Player } from "@remotion/player";
+import { Player } from "@websim/remotion/player";
 import { RecordedClip } from "../composition.jsx";
 import {
   Crop,
