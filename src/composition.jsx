@@ -1,6 +1,6 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React from "react";
-import { AbsoluteFill, OffthreadVideo, Sequence, Audio } from "remotion";
+import { AbsoluteFill, Sequence, Audio, Video } from "remotion";
 const RecordedClip = ({ videoUrl, crop, audioTracks = [], originalDimensions }) => {
   const sourceWidth = originalDimensions?.width || 1920;
   const sourceHeight = originalDimensions?.height || 1080;
@@ -14,7 +14,7 @@ const RecordedClip = ({ videoUrl, crop, audioTracks = [], originalDimensions }) 
       width: sourceWidth,
       height: sourceHeight
     }, children: /* @__PURE__ */ jsxDEV(
-      OffthreadVideo,
+      Video,
       {
         src: videoUrl,
         style: {
