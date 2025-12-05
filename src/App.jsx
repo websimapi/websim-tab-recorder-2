@@ -1,9 +1,9 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React, { useEffect, useState } from "react";
 import { Player } from "@remotion/player";
-import { RecordedClip } from "./composition";
-import { useRecorder } from "./hooks/useRecorder";
-import { Controls } from "./components/Controls";
+import { RecordedClip } from "./composition.jsx";
+import { useRecorder } from "./hooks/useRecorder.js";
+import { Controls } from "./components/Controls.jsx";
 import { AlertCircle } from "lucide-react";
 function App() {
   const {
