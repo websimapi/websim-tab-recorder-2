@@ -1,6 +1,6 @@
 import { jsxDEV } from "react/jsx-dev-runtime";
 import React from "react";
-import { AbsoluteFill, Sequence, Audio, OffthreadVideo } from "remotion";
+import { AbsoluteFill, Sequence, Audio, Video } from "remotion";
 const RecordedClip = ({ videoUrl, crop, audioTracks = [], originalDimensions }) => {
   const sourceWidth = originalDimensions?.width || 1920;
   const sourceHeight = originalDimensions?.height || 1080;
@@ -14,7 +14,7 @@ const RecordedClip = ({ videoUrl, crop, audioTracks = [], originalDimensions }) 
       width: sourceWidth,
       height: sourceHeight
     }, children: /* @__PURE__ */ jsxDEV(
-      OffthreadVideo,
+      Video,
       {
         src: videoUrl,
         style: {
@@ -22,7 +22,8 @@ const RecordedClip = ({ videoUrl, crop, audioTracks = [], originalDimensions }) 
           height: "100%",
           objectFit: "fill",
           backgroundColor: "#000"
-        }
+        },
+        playsInline: true
       },
       void 0,
       false,
@@ -37,11 +38,11 @@ const RecordedClip = ({ videoUrl, crop, audioTracks = [], originalDimensions }) 
       columnNumber: 17
     }) : /* @__PURE__ */ jsxDEV(AbsoluteFill, { className: "bg-slate-900 flex items-center justify-center text-white", children: /* @__PURE__ */ jsxDEV("h2", { className: "text-2xl font-bold", children: "No Recording Available" }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 35,
+      lineNumber: 36,
       columnNumber: 21
     }) }, void 0, false, {
       fileName: "<stdin>",
-      lineNumber: 34,
+      lineNumber: 35,
       columnNumber: 17
     }),
     audioTracks.map((track) => /* @__PURE__ */ jsxDEV(Sequence, { from: track.startFrame || 0, children: /* @__PURE__ */ jsxDEV(
@@ -54,12 +55,12 @@ const RecordedClip = ({ videoUrl, crop, audioTracks = [], originalDimensions }) 
       false,
       {
         fileName: "<stdin>",
-        lineNumber: 41,
+        lineNumber: 42,
         columnNumber: 21
       }
     ) }, track.id, false, {
       fileName: "<stdin>",
-      lineNumber: 40,
+      lineNumber: 41,
       columnNumber: 17
     }))
   ] }, void 0, true, {

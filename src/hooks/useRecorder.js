@@ -82,7 +82,7 @@ export function useRecorder() {
                 clearInterval(timerIntervalRef.current);
             };
 
-            mediaRecorder.start(200); // Collect chunks every 200ms
+            mediaRecorder.start(); // Start recording (single chunk for better seekability)
             startTimeRef.current = Date.now();
             setStatus('recording');
 
